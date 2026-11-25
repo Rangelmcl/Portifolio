@@ -322,7 +322,21 @@ a:focus-visible, button:focus-visible{
   border: 2px solid var(--ink);
 }
 .music-player.open{ display: block; }
-.music-player audio{ display: block; width: 100%; height: 54px; background: var(--ink); }
+.music-player iframe{ display: block; width: 100%; height: 170px; border: 0; }
+.music-fallback{
+  display: block;
+  text-align: center;
+  font-family: var(--font-heavy);
+  font-size: .6rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--muted);
+  background: var(--dark-grey);
+  padding: .55rem;
+  text-decoration: none;
+  border-top: 2px solid var(--ink);
+}
+.music-fallback:hover{ color: var(--white); background: var(--dark-grey-hi); }
 
 /* dica de rolagem */
 .scroll-cue{
@@ -892,7 +906,9 @@ footer{ padding: 4.5rem 0 3rem; }
         </span>
       </button>
       <div class="music-player" id="musicPlayer">
-        <audio id="musicAudio" src="Tell_Me_Why.mp3" controls loop preload="none"></audio>
+        <!-- o iframe só recebe "src" quando o botão é clicado -->
+        <iframe id="musicFrame" title="Player de música" allow="autoplay; encrypted-media" loading="lazy"></iframe>
+        <a id="musicFallback" class="music-fallback" href="https://www.youtube.com/watch?v=sxdUNYILMkU" target="_blank" rel="noopener">Não tocou? Ouvir no YouTube ↗</a>
       </div>
     </div>
 
@@ -1620,29 +1636,27 @@ document.getElementById(&quot;tree&quot;).appendChild(raizUl);
     }, { passive: true });
   }
 
-  /* ---- player de música: toca o arquivo MP3 local ---- */
+  /* ---- player de música: só carrega o iframe quando o botão é clicado ---- */
   var musicToggle = document.getElementById('musicToggle');
   var musicPlayer = document.getElementById('musicPlayer');
-  var musicAudio  = document.getElementById('musicAudio');
+  var musicFrame  = document.getElementById('musicFrame');
   var musicIcon   = document.getElementById('musicIcon');
+  var VIDEO_ID = 'sxdUNYILMkU'; 
+  var tocando = false;
 
-  if (musicToggle && musicAudio) {
+  if (musicToggle) {
     musicToggle.addEventListener('click', function () {
-      if (musicAudio.paused) {
+      tocando = !tocando;
+      if (tocando) {
+        musicFrame.src = 'https://www.youtube-nocookie.com/embed/' + VIDEO_ID + '?autoplay=1&rel=0';
         musicPlayer.classList.add('open');
-        var p = musicAudio.play();
-        if (p && p.catch) p.catch(function () { musicIcon.textContent = '▶'; });
+        musicIcon.textContent = '❚❚';
       } else {
-        musicAudio.pause();
+        musicFrame.src = ''; /* remove o src pra realmente parar o áudio */
+        musicPlayer.classList.remove('open');
+        musicIcon.textContent = '▶';
       }
-    });
-    musicAudio.addEventListener('play', function () {
-      musicIcon.textContent = '❚❚';
-      musicToggle.setAttribute('aria-expanded', 'true');
-    });
-    musicAudio.addEventListener('pause', function () {
-      musicIcon.textContent = '▶';
-      musicToggle.setAttribute('aria-expanded', 'false');
+      musicToggle.setAttribute('aria-expanded', tocando ? 'true' : 'false');
     });
   }
 
