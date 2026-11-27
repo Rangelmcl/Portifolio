@@ -630,6 +630,47 @@ section{ padding: 6rem 0; border-top: 1px solid var(--border); }
 .t-embed{ margin: 1rem 0 0; }
 .t-embed iframe{ display: block; width: 100%; height: 640px; border: 3px solid var(--ink); border-radius: 10px; box-shadow: 6px 6px 0 var(--ink); background: #050505; }
 @media (max-width: 700px){ .t-embed iframe{ height: 560px; } }
+.t-aviso{margin:1rem 0 0 !important;padding:.8rem 1rem;border:2px dashed #6b6b73;border-radius:8px;color:#A6A6AC;font-size:.92rem}
+.t-aviso strong{color:#fff}
+.t-texto{margin:.8rem 0 0 !important;color:#E2E4EC}
+/* ===== Mundo Senai ===== */
+.ms .ms-lead{margin:.2rem 0 1.1rem;color:#E2E4EC;max-width:62ch}
+.ms .ms-lead strong{color:var(--white)}
+.ms-chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:.3rem 0 1rem;padding:0}
+.ms-chips li{font-family:var(--font-heavy);font-size:.58rem;text-transform:uppercase;letter-spacing:.05em;background:var(--white);color:var(--ink);border:2px solid var(--ink);border-radius:6px;padding:.3rem .7rem;box-shadow:2px 2px 0 var(--ink)}
+.ms-demo{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.ms-chat{display:flex;flex-direction:column;background:var(--bg-dark);border:3px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:4px 4px 0 var(--ink)}
+.ms-bar{display:flex;align-items:center;gap:.6rem;background:var(--dark-grey-hi);border-bottom:3px solid var(--ink);padding:.5rem .8rem}
+.ms-bar b{font-family:var(--font-heavy);font-weight:400;font-size:.6rem;text-transform:uppercase;letter-spacing:.04em}
+.ms-dots{display:inline-flex;gap:4px}
+.ms-dots i{width:8px;height:8px;border-radius:50%;background:#55555c;display:block}
+.ms-dots i:first-child{background:var(--fuchsia)}
+.ms-msgs{flex:1;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;gap:.45rem;padding:.8rem}
+.ms-msg{max-width:82%;padding:.4rem .75rem;border-radius:12px;font-size:.88rem;line-height:1.35;animation:msIn .3s ease both}
+.ms-msg.eu{align-self:flex-end;background:var(--fuchsia);color:var(--white);border-bottom-right-radius:3px}
+.ms-msg.outro{align-self:flex-start;background:var(--dark-grey-hi);color:#E2E4EC;border-bottom-left-radius:3px}
+.ms-vazio{margin:auto;color:var(--muted);font-size:.85rem;text-align:center}
+.ms-foot{font-family:var(--font-heavy);font-size:.52rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:center;padding:.45rem;border-top:3px solid var(--ink);background:var(--dark-grey)}
+.ms-db .ms-foot{color:var(--white);background:var(--fuchsia)}
+.ms-ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;margin-top:1rem}
+.ms-btn{font-family:var(--font-heavy);font-size:.62rem;text-transform:uppercase;letter-spacing:.03em;color:var(--white);background:var(--fuchsia);border:2px solid var(--ink);border-radius:6px;padding:.5rem .9rem;box-shadow:2px 2px 0 var(--ink);cursor:pointer;transition:all .2s ease}
+.ms-btn:hover{background:var(--white);color:var(--ink);box-shadow:4px 4px 0 var(--ink);transform:translate(-2px,-2px)}
+.ms-btn.ms-ghost{background:transparent;border-color:var(--white)}
+.ms-nota{font-size:.78rem;color:var(--muted)}
+.ms-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.7rem;counter-reset:s}
+.ms-steps li{background:var(--bg-dark);border:2px solid var(--ink);border-radius:8px;padding:.7rem .8rem;font-size:.86rem;line-height:1.3;color:#E2E4EC}
+.ms-steps li span{display:flex;align-items:center;justify-content:center;width:26px;height:26px;margin-bottom:.45rem;border-radius:50%;background:var(--fuchsia);border:2px solid var(--ink);font-family:var(--font-heavy);font-size:.65rem;color:var(--white)}
+.ms-quote{margin:1.3rem 0 0;padding:.9rem 1.1rem;border-left:5px solid var(--fuchsia);background:var(--bg-dark);border-radius:0 8px 8px 0;color:#E2E4EC}
+.ms-quote b{display:block;font-family:var(--font-heavy);font-weight:400;font-size:.62rem;text-transform:uppercase;letter-spacing:.05em;color:var(--fuchsia);margin-bottom:.3rem}
+.ms-defs{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.ms-defs div{background:var(--bg-dark);border:2px solid var(--ink);border-radius:8px;padding:.9rem 1rem}
+.ms-defs b{display:block;font-family:var(--font-heavy);font-weight:400;font-size:.65rem;text-transform:uppercase;letter-spacing:.04em;color:var(--fuchsia);margin-bottom:.4rem}
+.ms-defs span{font-size:.9rem;line-height:1.45;color:#E2E4EC}
+.ms .ms-semfoto{margin:1.3rem 0 0;padding:.7rem 1rem;border:2px dashed #6b6b73;border-radius:8px;font-size:.88rem;color:var(--muted);max-width:none}
+.ms .ms-semfoto strong{color:var(--white)}
+@keyframes msIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (max-width:620px){.ms-demo,.ms-defs{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.ms-msg{animation:none}}
 /* detalhes da entrega 01 */
 .t-sub{ font-family: var(--font-heavy); font-size: .7rem; text-transform: uppercase; letter-spacing: .04em; color: var(--fuchsia); margin: 1.2rem 0 .7rem; font-weight: 400; }
 .t-list{ list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
@@ -908,7 +949,7 @@ footer{ padding: 4.5rem 0 3rem; }
       <div class="music-player" id="musicPlayer">
         <!-- o iframe só recebe "src" quando o botão é clicado -->
         <iframe id="musicFrame" title="Player de música" allow="autoplay; encrypted-media" loading="lazy"></iframe>
-        <a id="musicFallback" class="music-fallback" href="https://www.youtube.com/watch?v=sxdUNYILMkU" target="_blank" rel="noopener">Não tocou? Ouvir no YouTube ↗</a>
+        <a id="musicFallback" class="music-fallback" href="https://www.youtube.com/watch?v=evQd6TVa8H4" target="_blank" rel="noopener">Não tocou? Ouvir no YouTube ↗</a>
       </div>
     </div>
 
@@ -1239,7 +1280,7 @@ footer a{color:var(--white)}
           </div>
 
           <div class="t-embed">
-            <iframe title="Árvore das Profissões 2.0" loading="lazy" style="height:720px" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="&lt;!DOCTYPE html&gt;
+            <iframe title="Árvore das Profissões 2.0" loading="lazy" style="height:520px" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;pt-BR&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -1249,23 +1290,20 @@ footer a{color:var(--white)}
 &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
 &lt;style&gt;
 :root{
-  --red:#C81E2E; --bg:#050505; --card:#19191D; --card-hi:#2C2C31;
+  --red:#C81E2E; --bg:#050505; --card:#19191D;
   --ink:#000; --white:#fff; --muted:#A6A6AC; --line:#4a4a52;
   --heavy:&#x27;Dela Gothic One&#x27;,Impact,sans-serif;
   --body:&#x27;Space Grotesk&#x27;,system-ui,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--white);font-family:var(--body);line-height:1.6;
+body{margin:0;background:var(--bg);color:var(--white);font-family:var(--body);line-height:1.5;
   background-image:radial-gradient(ellipse at 50% -10%,rgba(200,30,46,.25),transparent 60%);background-repeat:no-repeat}
-.wrap{max-width:1100px;margin:0 auto;padding:2rem 1.25rem 3rem}
+.wrap{max-width:1000px;margin:0 auto;padding:1.5rem 1.25rem 2rem}
 
-.tag{font-family:var(--heavy);font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;background:var(--white);color:var(--ink);
-  border:2px solid var(--ink);border-radius:6px;padding:.3rem .7rem;display:inline-block}
-h1{font-family:var(--heavy);font-weight:400;font-size:clamp(2rem,6vw,3.4rem);line-height:1.05;margin:.8rem 0 .4rem;color:var(--red);text-shadow:3px 3px 0 var(--ink)}
-.sub{color:var(--muted);margin:0 0 2rem}
+h1{font-family:var(--heavy);font-weight:400;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.1;margin:0 0 1.2rem;color:var(--red);text-shadow:3px 3px 0 var(--ink)}
 
 /* árvore */
-.scroll{overflow-x:auto;padding:1rem .5rem 1.5rem}
+.scroll{overflow-x:auto;padding:.5rem .5rem 1rem}
 .tree{min-width:max-content;display:flex;justify-content:center}
 .tree ul{position:relative;display:flex;justify-content:center;margin:0;padding:20px 0 0;list-style:none}
 .tree &gt; ul{padding-top:0}
@@ -1280,225 +1318,61 @@ h1{font-family:var(--heavy);font-weight:400;font-size:clamp(2rem,6vw,3.4rem);lin
 .tree ul ul::before{content:&quot;&quot;;position:absolute;top:0;left:50%;height:20px;border-left:3px solid var(--line)}
 .tree &gt; ul &gt; li::before,.tree &gt; ul &gt; li::after{display:none}
 
-.node{display:inline-block;appearance:none;font:inherit;color:inherit;text-align:center;cursor:pointer;width:160px;background:var(--card);border:3px solid var(--ink);border-radius:10px;
-  padding:.8rem .8rem .9rem;box-shadow:5px 5px 0 var(--ink);transition:transform .25s,box-shadow .25s,background .25s}
-.node:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink);background:var(--card-hi)}
+.node{display:inline-block;width:150px;background:var(--card);border:3px solid var(--ink);border-radius:10px;padding:.65rem .7rem .75rem;box-shadow:5px 5px 0 var(--ink)}
 .node .papel{display:block;font-family:var(--heavy);font-size:.58rem;text-transform:uppercase;letter-spacing:.05em;color:var(--red)}
-.node .nome{display:block;font-weight:700;margin-top:.25rem;line-height:1.25}
-.node .prof{display:block;margin-top:.35rem;font-size:.88rem;color:#E2E4EC;line-height:1.3}
-.node .prof.vazio{color:var(--muted);font-style:italic}
-.node:focus-visible,.node.sel{outline:3px solid var(--white);outline-offset:3px}
-.node.sel{transform:translate(-3px,-3px);box-shadow:8px 8px 0 var(--ink)}
-.painel .vazio-msg{color:var(--muted)}
-.painel .quem{margin:0 0 1.1rem}
-.painel .quem strong{font-family:var(--heavy);font-weight:400;font-size:1.15rem;display:block}
-.painel .quem span{color:var(--muted)}
-.blocos{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.bloco{border:3px solid var(--ink);border-radius:8px;background:var(--card-hi);padding:1rem 1.1rem}
-.bloco.ia{background:var(--red)}
-.bloco h3{font-family:var(--heavy);font-weight:400;font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;margin:0 0 .5rem}
-.bloco:not(.ia) h3{color:var(--red)}
-.bloco p{margin:0;font-size:.95rem;color:var(--white)}
-.node .obs{display:block;margin-top:.35rem;font-size:.75rem;color:var(--muted);line-height:1.3}
+.node .prof{display:block;margin-top:.3rem;font-size:.88rem;color:#E2E4EC;line-height:1.3}
+.node.raiz{background:var(--red);width:200px}
+.node.raiz .papel,.node.raiz .prof{color:var(--white)}
 .casal{display:inline-flex;align-items:center}
-.casal .node{width:150px}
-.casal .liga{flex:none;width:26px;height:3px;background:var(--red)}
-.node.raiz{background:var(--red);width:210px}
-.node.raiz:hover{background:#d92a3b}
-.node.raiz .papel{color:var(--white)}
-.node.raiz .prof{color:var(--white)}
+.casal .liga{flex:none;width:24px;height:3px;background:var(--red)}
 
-.card{background:var(--card);border:3px solid var(--ink);border-radius:10px;padding:1.4rem 1.6rem;box-shadow:6px 6px 0 var(--ink);margin-top:1.5rem}
-h2{font-family:var(--heavy);font-weight:400;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;color:var(--red);margin:0 0 .8rem}
-.card p{margin:0;color:#E2E4EC;max-width:65ch}
-
-footer{margin-top:2rem;text-align:center;color:var(--muted);font-size:.85rem}
-footer a{color:var(--white)}
-@media (prefers-reduced-motion:reduce){.node{transition:none}}
+.nota{margin:1rem 0 0;text-align:center;color:var(--muted);font-size:.88rem}
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;div class=&quot;wrap&quot;&gt;
 
-  &lt;span class=&quot;tag&quot;&gt;também conhecido como Rangel&lt;/span&gt;
   &lt;h1&gt;Árvore das Profissões 2.0&lt;/h1&gt;
-  &lt;p class=&quot;sub&quot;&gt;As profissões da minha família e o caminho que eu quero seguir. Clique em uma pessoa para ver o que a IA mudou na profissão dela.&lt;/p&gt;
 
   &lt;div class=&quot;scroll&quot;&gt;&lt;div class=&quot;tree&quot; id=&quot;tree&quot; aria-label=&quot;Árvore das profissões da família&quot;&gt;&lt;/div&gt;&lt;/div&gt;
 
-  &lt;section class=&quot;card painel&quot; id=&quot;painel&quot; aria-live=&quot;polite&quot;&gt;
-    &lt;h2&gt;O que mudou com a IA&lt;/h2&gt;
-    &lt;p class=&quot;vazio-msg&quot;&gt;Clique em uma pessoa da árvore para ver como a inteligência artificial mudou a profissão dela.&lt;/p&gt;
-  &lt;/section&gt;
+  &lt;p class=&quot;nota&quot;&gt;Mapear as profissões da família mostrou como as escolhas de quem está perto de mim influenciam as minhas.&lt;/p&gt;
 
-  &lt;section class=&quot;card&quot;&gt;
-    &lt;h2&gt;O que eu aprendi&lt;/h2&gt;
-    &lt;p&gt;Mapear as profissões da minha família numa árvore me mostrou como as escolhas de quem está perto de mim influenciam as minhas — e me ajudou a organizar visualmente ideias que antes só estavam na minha cabeça.&lt;/p&gt;
-  &lt;/section&gt;
-
-  &lt;footer&gt;
-    Feito por Davi Rangel · SESI — Técnico de Informática para a Internet ·
-    &lt;a href=&quot;https://github.com/Rangelmcl&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;
-  &lt;/footer&gt;
 &lt;/div&gt;
 
 &lt;script&gt;
-/* =====================================================
-   COMO EDITAR A ÁRVORE
-   - &quot;papel&quot;: quem é a pessoa (Pai, Mãe, Tio...)
-   - &quot;nome&quot;: opcional, nome da pessoa (deixe &quot;&quot; se não quiser)
-   - &quot;prof&quot;: a profissão. Deixe &quot;&quot; para aparecer &quot;a preencher&quot;.
-   - &quot;obs&quot;: opcional, uma observação pequena embaixo.
-   - &quot;ia&quot;: o texto que aparece ao clicar na pessoa:
-        antes  = como era a profissão antes da IA
-        depois = o que a IA mudou
-        humano = o que continua dependendo da pessoa
-   - &quot;filhos&quot;: as pessoas que ficam abaixo.
-   - &quot;casal&quot;: use no lugar de papel/prof para mostrar duas
-     pessoas ligadas: casal: [ { ... }, { ... } ]
-   ===================================================== */
+/* COMO EDITAR: &quot;papel&quot; é quem é a pessoa, &quot;prof&quot; é a profissão e
+   &quot;filhos&quot; são as pessoas que ficam abaixo. &quot;casal&quot; mostra duas
+   pessoas ligadas. Copie uma linha { ... } para adicionar mais gente. */
 var arvore = {
-  papel: &quot;Eu&quot;, nome: &quot;Davi Rangel&quot;,
-  prof: &quot;Quero: programação e hardware&quot;,
-  ia: {
-    antes: &quot;Programar era escrever cada linha à mão e procurar a solução em fóruns e na documentação.&quot;,
-    depois: &quot;Assistentes de IA sugerem código, explicam erros e ajudam a testar. O trabalho passa a ser pedir bem, revisar e corrigir.&quot;,
-    humano: &quot;Entender a lógica por trás do código, decidir o que construir e perceber quando a IA errou. No hardware, a mão na peça continua fazendo diferença.&quot;
-  },
+  papel: &quot;Eu&quot;, prof: &quot;Davi Rangel · quero programação e hardware&quot;,
   filhos: [
-    { papel: &quot;Pai&quot;, prof: &quot;Mecânico&quot;,
-      ia: {
-        antes: &quot;O diagnóstico dependia do ouvido, da experiência e de testar peça por peça.&quot;,
-        depois: &quot;Scanners e softwares com IA leem os sensores do carro, apontam os defeitos mais prováveis e ajudam a avisar uma falha antes de ela acontecer (manutenção preditiva).&quot;,
-        humano: &quot;Mexer no motor, confirmar o defeito na prática e consertar. A IA indica, a mão do mecânico resolve.&quot;
-      } },
+    { papel: &quot;Pai&quot;, prof: &quot;Mecânico&quot; },
     { papel: &quot;Mãe&quot;, prof: &quot;Professora&quot;,
-      ia: {
-        antes: &quot;Planejar aula, montar atividade e corrigir tudo era feito à mão, com muito trabalho fora da sala.&quot;,
-        depois: &quot;A IA ajuda a montar planos de aula, criar exercícios e corrigir mais rápido, e os alunos ganharam um tutor para tirar dúvidas. Em compensação, a professora precisa lidar com trabalhos feitos pela IA.&quot;,
-        humano: &quot;Acompanhar cada aluno, motivar, ensinar a pensar com senso crítico e a usar a IA com responsabilidade.&quot;
-      },
       filhos: [
         { casal: [
-            { papel: &quot;Tio Junior&quot;, prof: &quot;Gerente da Placar&quot;, obs: &quot;lado da mãe&quot;,
-              ia: {
-                antes: &quot;Escala da equipe, metas e relatórios de venda eram montados à mão.&quot;,
-                depois: &quot;A IA analisa as vendas, ajuda a prever o movimento, monta escalas e relatórios e já responde parte das dúvidas dos clientes.&quot;,
-                humano: &quot;Liderar a equipe, resolver conflitos e tomar as decisões difíceis.&quot;
-              } },
-            { papel: &quot;Tia Lívia&quot;, prof: &quot;Médica&quot;, obs: &quot;casada com o Tio Junior&quot;,
-              ia: {
-                antes: &quot;Cada exame de imagem era analisado só pelo olhar do médico, e o prontuário tomava muito tempo.&quot;,
-                depois: &quot;A IA ajuda a analisar exames como radiografias e tomografias, sugere hipóteses e transcreve consultas para agilizar o prontuário.&quot;,
-                humano: &quot;Examinar o paciente, decidir o tratamento, conversar com cuidado e assumir a responsabilidade pela decisão.&quot;
-              } }
+            { papel: &quot;Tio Junior&quot;, prof: &quot;Gerente da Placar&quot; },
+            { papel: &quot;Tia Lívia&quot;, prof: &quot;Médica&quot; }
           ],
-          filhos: [
-            { papel: &quot;Primo&quot;, prof: &quot;Trabalha em um mercado&quot;, obs: &quot;filho dos tios&quot;,
-              ia: {
-                antes: &quot;Repor prateleira, registrar compras e conferir o estoque dependia de contagem manual.&quot;,
-                depois: &quot;A IA prevê a procura para repor na hora certa, sistemas ajudam a controlar o estoque e o autoatendimento mudou o trabalho no caixa.&quot;,
-                humano: &quot;Atender o cliente, organizar a loja, resolver imprevistos e ajudar quem não sabe usar a tecnologia.&quot;
-              } }
-          ] }
+          filhos: [ { papel: &quot;Primo&quot;, prof: &quot;Trabalha em um mercado&quot; } ] }
       ] },
-    { papel: &quot;Irmão&quot;, prof: &quot;Dono de uma mercearia&quot;,
-      ia: {
-        antes: &quot;Controlar estoque, preço e fiado era no caderno ou de memória.&quot;,
-        depois: &quot;Aplicativos com IA ajudam a prever o que vai vender mais, controlar o estoque, sugerir preços e responder clientes no WhatsApp.&quot;,
-        humano: &quot;Conhecer a freguesia, negociar com o fornecedor e dar o atendimento que faz o cliente voltar.&quot;
-      } }
+    { papel: &quot;Irmão&quot;, prof: &quot;Dono de uma mercearia&quot; }
   ]
 };
 
-/* ----- monta a árvore na página (não precisa mexer aqui) ----- */
-var selecionado = null;
-var painel = document.getElementById(&quot;painel&quot;);
-
-function bloco(titulo, texto, classe) {
-  var d = document.createElement(&quot;div&quot;);
-  d.className = &quot;bloco&quot; + (classe ? &quot; &quot; + classe : &quot;&quot;);
-  var h = document.createElement(&quot;h3&quot;); h.textContent = titulo;
-  var t = document.createElement(&quot;p&quot;); t.textContent = texto;
-  d.appendChild(h); d.appendChild(t);
-  return d;
-}
-
-function mostra(p, btn) {
-  if (selecionado) {
-    selecionado.classList.remove(&quot;sel&quot;);
-    selecionado.setAttribute(&quot;aria-pressed&quot;, &quot;false&quot;);
-  }
-  selecionado = btn;
-  btn.classList.add(&quot;sel&quot;);
-  btn.setAttribute(&quot;aria-pressed&quot;, &quot;true&quot;);
-
-  painel.textContent = &quot;&quot;;
-  var h2 = document.createElement(&quot;h2&quot;);
-  h2.textContent = &quot;O que mudou com a IA&quot;;
-  painel.appendChild(h2);
-
-  var quem = document.createElement(&quot;p&quot;);
-  quem.className = &quot;quem&quot;;
-  var forte = document.createElement(&quot;strong&quot;);
-  forte.textContent = p.papel + (p.nome ? &quot; · &quot; + p.nome : &quot;&quot;);
-  var prof = document.createElement(&quot;span&quot;);
-  prof.textContent = p.prof;
-  quem.appendChild(forte); quem.appendChild(prof);
-  painel.appendChild(quem);
-
-  var ia = p.ia;
-  if (!ia) {
-    var vazio = document.createElement(&quot;p&quot;);
-    vazio.className = &quot;vazio-msg&quot;;
-    vazio.textContent = &quot;Ainda não escrevi o que a IA mudou nessa profissão.&quot;;
-    painel.appendChild(vazio);
-    return;
-  }
-  var grade = document.createElement(&quot;div&quot;);
-  grade.className = &quot;blocos&quot;;
-  grade.appendChild(bloco(&quot;Antes da IA&quot;, ia.antes));
-  grade.appendChild(bloco(&quot;Com a IA&quot;, ia.depois, &quot;ia&quot;));
-  grade.appendChild(bloco(&quot;O que continua humano&quot;, ia.humano));
-  painel.appendChild(grade);
-
-  painel.scrollIntoView({ behavior: &quot;smooth&quot;, block: &quot;nearest&quot; });
-}
-
 function caixa(p, raiz) {
-  var box = document.createElement(&quot;button&quot;);
-  box.type = &quot;button&quot;;
+  var box = document.createElement(&quot;div&quot;);
   box.className = &quot;node&quot; + (raiz ? &quot; raiz&quot; : &quot;&quot;);
-  box.setAttribute(&quot;aria-pressed&quot;, &quot;false&quot;);
-
   var papel = document.createElement(&quot;span&quot;);
   papel.className = &quot;papel&quot;; papel.textContent = p.papel;
-  box.appendChild(papel);
-
-  if (p.nome) {
-    var nome = document.createElement(&quot;span&quot;);
-    nome.className = &quot;nome&quot;; nome.textContent = p.nome;
-    box.appendChild(nome);
-  }
-
   var prof = document.createElement(&quot;span&quot;);
-  prof.className = &quot;prof&quot; + (p.prof ? &quot;&quot; : &quot; vazio&quot;);
-  prof.textContent = p.prof || &quot;profissão a preencher&quot;;
-  box.appendChild(prof);
-
-  if (p.obs) {
-    var obs = document.createElement(&quot;span&quot;);
-    obs.className = &quot;obs&quot;; obs.textContent = p.obs;
-    box.appendChild(obs);
-  }
-
-  box.addEventListener(&quot;click&quot;, function () { mostra(p, box); });
+  prof.className = &quot;prof&quot;; prof.textContent = p.prof;
+  box.appendChild(papel); box.appendChild(prof);
   return box;
 }
 
 function criaNo(p, raiz) {
   var li = document.createElement(&quot;li&quot;);
-
   if (p.casal) {
     var par = document.createElement(&quot;div&quot;);
     par.className = &quot;casal&quot;;
@@ -1511,7 +1385,6 @@ function criaNo(p, raiz) {
   } else {
     li.appendChild(caixa(p, raiz));
   }
-
   if (p.filhos &amp;&amp; p.filhos.length) {
     var ul = document.createElement(&quot;ul&quot;);
     p.filhos.forEach(function (f) { ul.appendChild(criaNo(f, false)); });
@@ -1532,24 +1405,153 @@ document.getElementById(&quot;tree&quot;).appendChild(raizUl);
           <p class="t-actions"><a class="t-link" href="https://github.com/Rangelmcl/arvore-das-profissoes" target="_blank" rel="noopener">Abrir pasta no GitHub ➔</a></p>
         </div>
       </li>
-
-      <li class="t-item em-breve reveal">
+      <li class="t-item reveal">
         <div class="t-dot">04</div>
         <div class="t-card">
           <div class="t-head">
-            <h3>Âncoras de Carreira</h3>
-            <span class="badge wait">Em breve</span>
+            <h3>Janela de Johari</h3>
+            <span class="badge ok">Concluída</span>
           </div>
+
+          <div class="t-embed">
+            <iframe title="Janela de Johari" loading="lazy" style="height:480px" sandbox="allow-scripts allow-popups allow-popups-to-escape-sandbox" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-BR&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Janela de Johari — Davi Rangel&lt;/title&gt;
+&lt;meta name=&quot;theme-color&quot; content=&quot;#050505&quot;&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+:root{
+  --red:#C81E2E; --bg:#050505; --card:#19191D;
+  --ink:#000; --white:#fff; --muted:#A6A6AC;
+  --heavy:&#x27;Dela Gothic One&#x27;,Impact,sans-serif;
+  --body:&#x27;Space Grotesk&#x27;,system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--white);font-family:var(--body);line-height:1.5;
+  background-image:radial-gradient(ellipse at 50% -10%,rgba(200,30,46,.25),transparent 60%);background-repeat:no-repeat}
+.wrap{max-width:900px;margin:0 auto;padding:1.5rem 1.25rem 2rem}
+
+h1{font-family:var(--heavy);font-weight:400;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.1;margin:0 0 .4rem;color:var(--red);text-shadow:3px 3px 0 var(--ink)}
+.sub{color:var(--muted);margin:0 0 1.5rem}
+
+.janela{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.quad{display:flex;flex-direction:column;background:var(--card);border:3px solid var(--ink);border-radius:10px;overflow:hidden;box-shadow:6px 6px 0 var(--ink)}
+.quad header{background:var(--red);border-bottom:3px solid var(--ink);padding:.7rem 1rem;text-align:center}
+.quad h2{font-family:var(--heavy);font-weight:400;font-size:.95rem;text-transform:uppercase;letter-spacing:.05em;margin:0}
+.quad header p{margin:.2rem 0 0;font-size:.8rem;color:#FFD9DD}
+.quad .texto{flex:1;display:flex;align-items:center;justify-content:center;min-height:130px;padding:1.2rem 1.4rem;text-align:center;font-size:1.2rem;font-weight:500;color:var(--white)}
+
+@media (max-width:560px){.janela{grid-template-columns:1fr}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class=&quot;wrap&quot;&gt;
+
+  &lt;h1&gt;Janela de Johari&lt;/h1&gt;
+  &lt;p class=&quot;sub&quot;&gt;Davi Rangel · o que eu sei e o que os outros sabem sobre mim&lt;/p&gt;
+
+  &lt;main class=&quot;janela&quot;&gt;
+    &lt;section class=&quot;quad&quot;&gt;
+      &lt;header&gt;
+        &lt;h2&gt;Aberto&lt;/h2&gt;
+        &lt;p&gt;Conhecido por mim e pelos outros&lt;/p&gt;
+      &lt;/header&gt;
+      &lt;div class=&quot;texto&quot;&gt;Sou uma pessoa justa e amigo&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;quad&quot;&gt;
+      &lt;header&gt;
+        &lt;h2&gt;Ponto cego&lt;/h2&gt;
+        &lt;p&gt;Conhecido pelos outros, mas não por mim&lt;/p&gt;
+      &lt;/header&gt;
+      &lt;div class=&quot;texto&quot;&gt;Uma pessoa que ajuda os outros&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;quad&quot;&gt;
+      &lt;header&gt;
+        &lt;h2&gt;Oculto&lt;/h2&gt;
+        &lt;p&gt;Conhecido por mim, mas não pelos outros&lt;/p&gt;
+      &lt;/header&gt;
+      &lt;div class=&quot;texto&quot;&gt;Sensível&lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;section class=&quot;quad&quot;&gt;
+      &lt;header&gt;
+        &lt;h2&gt;Desconhecido&lt;/h2&gt;
+        &lt;p&gt;Desconhecido por mim e pelos outros&lt;/p&gt;
+      &lt;/header&gt;
+      &lt;div class=&quot;texto&quot;&gt;Verdadeiro&lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+          </div>
+
+          <p class="t-actions"><a class="t-link" href="https://github.com/Rangelmcl/janela-de-johari" target="_blank" rel="noopener">Abrir pasta no GitHub ➔</a></p>
         </div>
       </li>
-
-      <li class="t-item em-breve reveal">
+      <li class="t-item reveal">
         <div class="t-dot">05</div>
-        <div class="t-card">
+        <div class="t-card ms">
           <div class="t-head">
-            <h3>Manifesto</h3>
-            <span class="badge wait">Em breve</span>
+            <h3>Mundo Senai</h3>
+            <span class="badge ok">Concluída</span>
           </div>
+
+          <ul class="ms-chips" aria-label="Temas">
+            <li>Banco de dados</li><li>Back-end</li><li>Chat interativo</li>
+          </ul>
+
+          <p class="ms-lead">Meu grupo fez um chat para mostrar, na prática, o que acontece com as mensagens quando <strong>não existe</strong> um banco de dados e quando <strong>existe</strong>.</p>
+
+          <div class="ms-demo">
+            <div class="ms-chat" id="chatSem">
+              <div class="ms-bar"><span class="ms-dots"><i></i><i></i><i></i></span><b>Sem banco de dados</b></div>
+              <div class="ms-msgs" id="msgsSem" aria-live="polite"></div>
+              <div class="ms-foot">Só existe na página</div>
+            </div>
+            <div class="ms-chat ms-db" id="chatCom">
+              <div class="ms-bar"><span class="ms-dots"><i></i><i></i><i></i></span><b>Com banco de dados</b></div>
+              <div class="ms-msgs" id="msgsCom" aria-live="polite"></div>
+              <div class="ms-foot">Guardado no banco</div>
+            </div>
+          </div>
+          <div class="ms-ctrl">
+            <button type="button" class="ms-btn" id="msEnviar">Enviar mensagem</button>
+            <button type="button" class="ms-btn ms-ghost" id="msReset">↻ Recarregar a página</button>
+            <span class="ms-nota">Demonstração ilustrativa do que o nosso chat mostrava.</span>
+          </div>
+
+          <h4 class="t-sub">Roteiro em resumo</h4>
+          <ol class="ms-steps">
+            <li><span>1</span>Apresentar o tema</li>
+            <li><span>2</span>Mostrar o chat sem banco</li>
+            <li><span>3</span>Recarregar e ver sumir</li>
+            <li><span>4</span>Mostrar o chat com banco</li>
+            <li><span>5</span>Explicar a diferença</li>
+          </ol>
+
+          <blockquote class="ms-quote">
+            <b>Como foi</b>
+            Tive muitos problemas no dia da apresentação, mas achei legal. No fim, foi uma experiência muito boa.
+          </blockquote>
+
+          <h4 class="t-sub">O que é cada um?</h4>
+          <div class="ms-defs">
+            <div><b>Back-end</b><span>A parte do sistema que o usuário não vê: recebe o que a pessoa faz na tela, aplica as regras e conversa com o banco de dados.</span></div>
+            <div><b>Banco de dados</b><span>O lugar onde as informações ficam guardadas de forma organizada, para não se perderem quando a página é recarregada.</span></div>
+          </div>
+
+          <p class="ms-semfoto"><strong>Sem fotos:</strong> eu não tenho fotos desse dia, por isso esta entrega não traz imagens.</p>
+
+          <p class="t-texto">Mais informações sobre o dia, o roteiro e o que aprendi estão no repositório.</p>
+          <p class="t-actions"><a class="t-link" href="https://github.com/Rangelmcl/mundo-senai" target="_blank" rel="noopener">Abrir pasta no GitHub ➔</a></p>
         </div>
       </li>
 
@@ -1641,7 +1643,7 @@ document.getElementById(&quot;tree&quot;).appendChild(raizUl);
   var musicPlayer = document.getElementById('musicPlayer');
   var musicFrame  = document.getElementById('musicFrame');
   var musicIcon   = document.getElementById('musicIcon');
-  var VIDEO_ID = 'sxdUNYILMkU'; 
+  var VIDEO_ID = 'evQd6TVa8H4'; /* Berserk (1997) - Tell Me Why (TV Version) */
   var tocando = false;
 
   if (musicToggle) {
@@ -1700,5 +1702,51 @@ document.getElementById(&quot;tree&quot;).appendChild(raizUl);
 })();
 </script>
 
+<script>
+/* demonstração do chat — Mundo Senai (ilustrativa) */
+(function () {
+  var textos = [
+    { q: "eu", t: "Oi, pessoal!" },
+    { q: "outro", t: "Funcionou?" },
+    { q: "eu", t: "Funcionou!" },
+    { q: "outro", t: "Agora recarrega a página" },
+    { q: "eu", t: "Olha só o que acontece" }
+  ];
+  var tela = [], banco = [], n = 0;
+  var elSem = document.getElementById("msgsSem");
+  var elCom = document.getElementById("msgsCom");
+  if (!elSem || !elCom) return;
+
+  function desenha(el, lista, vazio) {
+    el.textContent = "";
+    if (!lista.length) {
+      var v = document.createElement("div");
+      v.className = "ms-vazio"; v.textContent = vazio;
+      el.appendChild(v);
+      return;
+    }
+    lista.slice(-4).forEach(function (m) {
+      var d = document.createElement("div");
+      d.className = "ms-msg " + m.q; d.textContent = m.t;
+      el.appendChild(d);
+    });
+  }
+  function atualiza(vSem, vCom) {
+    desenha(elSem, tela, vSem || "Nenhuma mensagem ainda");
+    desenha(elCom, banco, vCom || "Nenhuma mensagem ainda");
+  }
+  function envia() {
+    var m = textos[n % textos.length]; n++;
+    tela.push(m); banco.push(m);
+    atualiza();
+  }
+  document.getElementById("msEnviar").addEventListener("click", envia);
+  document.getElementById("msReset").addEventListener("click", function () {
+    tela = [];                       /* sem banco: a conversa some */
+    atualiza("Tudo sumiu…");         /* com banco: as mensagens voltam do banco */
+  });
+  envia(); envia();
+})();
+</script>
 </body>
 </html>
