@@ -183,7 +183,7 @@ a:focus-visible, button:focus-visible{
   animation: fadeUp 1.1s var(--ease) .15s backwards;
 }
 .eye-badge{
-  width: 130px;
+  width: 190px;
   display: block;
   transform:
     translate(calc(var(--mx) * 6px), calc(var(--my) * 5px))
@@ -199,8 +199,18 @@ a:focus-visible, button:focus-visible{
   0%, 92%, 97%, 100% { transform: scaleY(1); }
   94%                { transform: scaleY(.06); }
 }
+.tear{
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: drip 4.5s ease-in-out infinite;
+}
+@keyframes drip{
+  0%, 100% { transform: scaleY(.82); }
+  55%      { transform: scaleY(1.06); }
+}
+@media (prefers-reduced-motion: reduce){ .tear{ animation: none; } }
 #pupil-group{
-  transform: translate(calc(var(--mx) * 15px), calc(var(--my) * 11px));
+  transform: translate(calc(var(--mx) * 14px), calc(var(--my) * 5px));
   transition: transform .35s var(--ease);
 }
 
@@ -829,7 +839,7 @@ footer{ padding: 4.5rem 0 3rem; }
    ========================================================= */
 @media (max-width: 880px){
   .hero{ margin: .75rem .75rem 0; padding: 3.5rem 1.1rem; min-height: 0; }
-  .eye-badge{ width: 96px; }
+  .eye-badge{ width: 130px; }
   .scroll-cue{ display: none; }
   section{ padding: 4rem 0; }
   .about-grid{ grid-template-columns: 1fr; gap: 2rem; }
@@ -902,27 +912,160 @@ footer{ padding: 4.5rem 0 3rem; }
 
     <!-- olho mais realista: íris com fibras e veias sutis na esclera -->
     <div class="hero-eye">
-      <svg class="eye-badge" viewBox="0 0 300 300" role="img" aria-label="Olho ilustrado que acompanha o cursor">
+      <svg class="eye-badge" viewBox="0 0 300 300" role="img" aria-label="Olho vermelho ilustrado, com uma lágrima de sangue, que acompanha o cursor">
         <defs>
-          <radialGradient id="iris" cx="50%" cy="45%" r="60%">
-            <stop offset="0%" stop-color="#3a0508"/>
-            <stop offset="55%" stop-color="#7a0f16"/>
-            <stop offset="100%" stop-color="#C81E2E"/>
+          <radialGradient id="skin" cx="50%" cy="46%" r="62%">
+            <stop offset="0%" stop-color="#f6f0f0"/>
+            <stop offset="62%" stop-color="#e2d8db"/>
+            <stop offset="100%" stop-color="#a99ba4"/>
           </radialGradient>
+          <radialGradient id="iris" cx="50%" cy="50%" r="55%">
+            <stop offset="0%" stop-color="#ff4a43"/>
+            <stop offset="55%" stop-color="#d1121e"/>
+            <stop offset="100%" stop-color="#5a0508"/>
+          </radialGradient>
+          <linearGradient id="sclera" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#cdb9bd"/>
+            <stop offset="45%" stop-color="#fff7f5"/>
+            <stop offset="100%" stop-color="#ecd9d9"/>
+          </linearGradient>
+          <linearGradient id="lidShade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#000" stop-opacity=".75"/>
+            <stop offset="55%" stop-color="#000" stop-opacity=".18"/>
+            <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="underShade" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#3a1f33" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#3a1f33" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="blood" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#8a0a14"/>
+            <stop offset="60%" stop-color="#e0212e"/>
+            <stop offset="100%" stop-color="#a30d19"/>
+          </linearGradient>
+          <clipPath id="abertura">
+            <path d="M45 165C85 138 215 134 258 160C225 205 90 212 45 165Z"/>
+          </clipPath>
         </defs>
-        <circle cx="150" cy="150" r="142" fill="var(--dark-grey)" stroke="#000" stroke-width="6"/>
-        <g id="eyeball">
-          <circle cx="150" cy="150" r="98" fill="#F2ECEA" stroke="#000" stroke-width="6"/>
-          <!-- veias sutis na esclera -->
-          <path d="M62 130c14 4 24 14 30 26M240 122c-16 2-28 12-34 24M70 182c14-2 26 4 34 14" stroke="#B23A3A" stroke-width="1.4" fill="none" opacity=".45"/>
-          <g id="pupil-group">
-            <circle cx="150" cy="150" r="46" fill="url(#iris)"/>
-            <path d="M150 104v92M108 150h84M120 116l60 68M180 116l-60 68" stroke="#000" stroke-width="1" opacity=".35"/>
-            <circle cx="150" cy="150" r="20" fill="#000000"/>
-            <circle cx="160" cy="140" r="8" fill="#FFFFFF" opacity=".85"/>
+
+        <!-- pele -->
+        <circle cx="150" cy="150" r="142" fill="url(#skin)" stroke="#000" stroke-width="6"/>
+
+        <!-- sombra embaixo do olho -->
+        <ellipse cx="152" cy="208" rx="104" ry="24" fill="url(#underShade)"/>
+
+        <!-- pálpebra pesada: prega e sombra -->
+        <path d="M45 165C85 118 215 112 258 160C215 134 85 138 45 165Z" fill="#4a2a3e" opacity=".4"/>
+        <path d="M45 165C85 118 215 112 258 160" stroke="#2c1a28" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+
+        <!-- olho -->
+        <g clip-path="url(#abertura)">
+          <g id="eyeball">
+            <rect x="40" y="120" width="225" height="100" fill="url(#sclera)"/>
+            <path d="M62 170c14-3 24-1 32 6M246 168c-14-2-24 0-32 6M110 196c10-6 20-8 30-8" stroke="#B23A3A" stroke-width="1.3" fill="none" opacity=".5"/>
+            <g id="pupil-group">
+              <circle cx="150" cy="170" r="40" fill="url(#iris)"/>
+              <circle cx="150" cy="170" r="40" fill="none" stroke="#3a0307" stroke-width="3" opacity=".8"/>
+              <path d="M150 132v76M112 170h76M123 143l54 54M177 143l-54 54" stroke="#000" stroke-width=".9" opacity=".3"/>
+              <circle cx="150" cy="170" r="15" fill="#000"/>
+              <circle cx="161" cy="158" r="6" fill="#fff" opacity=".9"/>
+            </g>
           </g>
+          <rect x="40" y="120" width="225" height="60" fill="url(#lidShade)"/>
         </g>
-        <path d="M56 98c28-32 160-32 188 0" stroke="#000" stroke-width="7" fill="none" stroke-linecap="round"/>
+
+        <!-- contorno: cílios em cima, linha fina embaixo -->
+        <path d="M45 165C85 138 215 134 258 160" stroke="#000" stroke-width="7" fill="none" stroke-linecap="round"/>
+        <path d="M45 165C90 212 225 205 258 160" stroke="#2c1a28" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+
+        <!-- sobrancelha -->
+        <path d="M38 112C110 82 212 94 278 144C215 128 115 118 38 112Z" fill="#0b0708"/>
+        <g fill="none" stroke-linecap="round">
+          <path d="M44.6 108.4Q54.9 109.0 64.8 114.2" stroke="#050304" stroke-width="2.0"/>
+          <path d="M44.6 109.4L48.6 103.1" stroke="#050304" stroke-width="1.4"/>
+          <path d="M48.2 107.1Q56.9 109.3 65.6 114.2" stroke="#050304" stroke-width="1.7"/>
+          <path d="M51.9 105.8Q61.3 109.2 72.8 114.9" stroke="#241a1c" stroke-width="2.4"/>
+          <path d="M55.7 104.6Q65.3 107.3 71.9 114.8" stroke="#241a1c" stroke-width="2.4"/>
+          <path d="M55.7 105.6L60.2 101.0" stroke="#050304" stroke-width="1.4"/>
+          <path d="M59.5 103.5Q67.7 109.6 75.7 115.1" stroke="#050304" stroke-width="1.7"/>
+          <path d="M63.3 102.5Q76.0 108.8 87.1 116.2" stroke="#050304" stroke-width="2.4"/>
+          <path d="M67.2 101.5Q79.1 108.0 90.2 116.4" stroke="#050304" stroke-width="2.4"/>
+          <path d="M67.2 102.5L71.0 97.4" stroke="#050304" stroke-width="1.4"/>
+          <path d="M71.1 100.6Q87.3 107.0 100.5 117.4" stroke="#050304" stroke-width="2.4"/>
+          <path d="M75.1 99.7Q84.7 108.0 96.0 117.0" stroke="#241a1c" stroke-width="1.7"/>
+          <path d="M79.0 98.9Q92.2 106.4 105.9 117.9" stroke="#050304" stroke-width="2.0"/>
+          <path d="M79.0 99.9L84.9 92.5" stroke="#050304" stroke-width="1.4"/>
+          <path d="M83.0 98.2Q90.8 105.6 100.4 117.4" stroke="#050304" stroke-width="2.0"/>
+          <path d="M87.1 97.6Q101.8 108.6 117.1 119.1" stroke="#050304" stroke-width="2.4"/>
+          <path d="M91.1 97.0Q104.3 108.3 118.8 119.2" stroke="#050304" stroke-width="2.0"/>
+          <path d="M91.1 98.0L97.0 91.0" stroke="#050304" stroke-width="1.4"/>
+          <path d="M95.2 96.5Q104.1 107.8 114.5 118.8" stroke="#050304" stroke-width="1.7"/>
+          <path d="M99.3 96.0Q112.4 106.9 127.5 120.1" stroke="#241a1c" stroke-width="2.0"/>
+          <path d="M103.4 95.6Q114.4 107.8 123.9 119.8" stroke="#050304" stroke-width="2.4"/>
+          <path d="M103.4 96.6L105.9 91.0" stroke="#050304" stroke-width="1.4"/>
+          <path d="M107.6 95.3Q117.3 105.4 128.5 120.3" stroke="#050304" stroke-width="2.4"/>
+          <path d="M111.7 95.1Q125.8 108.4 142.8 121.8" stroke="#241a1c" stroke-width="2.4"/>
+          <path d="M115.9 94.9Q127.4 108.4 141.6 121.7" stroke="#050304" stroke-width="2.0"/>
+          <path d="M115.9 95.9L117.9 89.5" stroke="#050304" stroke-width="1.4"/>
+          <path d="M120.1 94.8Q134.3 109.0 149.1 122.6" stroke="#241a1c" stroke-width="1.7"/>
+          <path d="M124.3 94.7Q136.1 108.1 150.9 122.8" stroke="#050304" stroke-width="2.4"/>
+          <path d="M128.5 94.8Q138.8 106.6 148.6 122.5" stroke="#050304" stroke-width="1.7"/>
+          <path d="M128.5 95.8L131.2 91.1" stroke="#050304" stroke-width="1.4"/>
+          <path d="M132.7 94.8Q148.7 109.3 162.8 124.2" stroke="#050304" stroke-width="1.7"/>
+          <path d="M137.0 95.0Q152.2 109.6 164.8 124.4" stroke="#050304" stroke-width="2.0"/>
+          <path d="M141.2 95.2Q154.0 110.2 167.3 124.8" stroke="#241a1c" stroke-width="1.7"/>
+          <path d="M141.2 96.2L147.0 91.3" stroke="#050304" stroke-width="1.4"/>
+          <path d="M145.4 95.5Q158.4 108.5 172.8 125.5" stroke="#050304" stroke-width="2.4"/>
+          <path d="M149.7 95.8Q159.7 108.9 171.8 125.3" stroke="#050304" stroke-width="1.7"/>
+          <path d="M153.9 96.3Q164.7 108.9 175.1 125.8" stroke="#050304" stroke-width="2.4"/>
+          <path d="M153.9 97.3L157.0 89.6" stroke="#050304" stroke-width="1.4"/>
+          <path d="M158.1 96.7Q167.1 111.2 179.0 126.3" stroke="#050304" stroke-width="2.0"/>
+          <path d="M162.4 97.3Q170.9 111.3 181.3 126.6" stroke="#050304" stroke-width="2.4"/>
+          <path d="M166.6 97.9Q175.1 111.7 185.8 127.2" stroke="#241a1c" stroke-width="2.0"/>
+          <path d="M166.6 98.9L171.5 92.8" stroke="#050304" stroke-width="1.4"/>
+          <path d="M170.8 98.6Q185.9 111.6 200.5 129.3" stroke="#050304" stroke-width="2.0"/>
+          <path d="M175.0 99.3Q189.6 114.8 201.5 129.4" stroke="#050304" stroke-width="2.4"/>
+          <path d="M179.2 100.1Q191.7 114.4 202.9 129.6" stroke="#050304" stroke-width="1.7"/>
+          <path d="M179.2 101.1L183.0 95.6" stroke="#050304" stroke-width="1.4"/>
+          <path d="M183.4 101.0Q193.8 113.5 201.5 129.4" stroke="#050304" stroke-width="1.7"/>
+          <path d="M187.6 101.9Q199.0 114.1 209.3 130.6" stroke="#050304" stroke-width="2.0"/>
+          <path d="M191.7 102.9Q205.7 116.2 219.3 132.2" stroke="#050304" stroke-width="2.0"/>
+          <path d="M191.7 103.9L196.0 97.5" stroke="#050304" stroke-width="1.4"/>
+          <path d="M195.8 104.0Q205.3 115.2 213.9 131.3" stroke="#241a1c" stroke-width="2.0"/>
+          <path d="M200.0 105.1Q211.7 117.2 220.8 132.4" stroke="#050304" stroke-width="2.0"/>
+          <path d="M204.1 106.3Q215.3 118.8 226.2 133.3" stroke="#050304" stroke-width="2.4"/>
+          <path d="M204.1 107.3L207.3 102.9" stroke="#050304" stroke-width="1.4"/>
+          <path d="M208.1 107.5Q217.9 120.5 224.9 133.1" stroke="#241a1c" stroke-width="2.4"/>
+          <path d="M212.2 108.9Q224.8 122.7 239.0 135.6" stroke="#050304" stroke-width="2.0"/>
+          <path d="M216.2 110.3Q227.2 123.0 240.0 135.8" stroke="#241a1c" stroke-width="2.0"/>
+          <path d="M216.2 111.3L221.9 105.3" stroke="#050304" stroke-width="1.4"/>
+          <path d="M220.2 111.7Q229.2 123.4 238.8 135.6" stroke="#050304" stroke-width="2.4"/>
+          <path d="M224.1 113.2Q237.1 125.2 248.6 137.4" stroke="#050304" stroke-width="1.7"/>
+          <path d="M228.0 114.8Q238.2 125.7 245.8 136.9" stroke="#050304" stroke-width="1.7"/>
+          <path d="M228.0 115.8L231.5 108.2" stroke="#050304" stroke-width="1.4"/>
+          <path d="M231.9 116.4Q238.4 124.4 247.5 137.2" stroke="#050304" stroke-width="1.7"/>
+          <path d="M235.8 118.1Q244.9 128.3 255.4 138.8" stroke="#050304" stroke-width="2.0"/>
+          <path d="M239.6 119.9Q250.2 129.5 260.7 140.0" stroke="#050304" stroke-width="2.4"/>
+          <path d="M239.6 120.9L242.9 113.6" stroke="#050304" stroke-width="1.4"/>
+          <path d="M243.4 121.7Q252.3 129.3 260.5 139.9" stroke="#241a1c" stroke-width="2.0"/>
+          <path d="M247.1 123.6Q256.4 131.0 264.7 140.8" stroke="#050304" stroke-width="2.4"/>
+          <path d="M250.8 125.6Q258.7 131.8 268.5 141.7" stroke="#050304" stroke-width="2.0"/>
+          <path d="M250.8 126.6L255.9 119.4" stroke="#050304" stroke-width="1.4"/>
+          <path d="M254.5 127.6Q264.8 135.9 277.4 143.8" stroke="#241a1c" stroke-width="2.4"/>
+          <path d="M258.1 129.7Q267.3 137.0 277.2 143.8" stroke="#050304" stroke-width="1.7"/>
+          <path d="M261.6 131.8Q269.1 136.3 278.0 144.0" stroke="#241a1c" stroke-width="2.0"/>
+          <path d="M261.6 132.8L266.5 128.1" stroke="#050304" stroke-width="1.4"/>
+          <path d="M265.1 134.0Q271.1 137.4 278.0 144.0" stroke="#241a1c" stroke-width="2.4"/>
+          <path d="M268.6 136.3Q274.1 139.5 278.0 144.0" stroke="#050304" stroke-width="2.4"/>
+          <path d="M272.0 138.6Q276.3 139.6 278.0 144.0" stroke="#050304" stroke-width="1.7"/>
+          <path d="M272.0 139.6L275.8 133.1" stroke="#050304" stroke-width="1.4"/>
+        </g>
+
+        <!-- lágrima de sangue -->
+        <g class="tear">
+          <path d="M203 190C208 208 213 226 211 244C210 257 200 257 199 244C198 226 199 208 203 190Z" fill="url(#blood)" stroke="#2a0509" stroke-width="1.5"/>
+          <path d="M205 214c2 8 3 16 2 24" stroke="#fff" stroke-width="1.8" stroke-linecap="round" fill="none" opacity=".55"/>
+        </g>
       </svg>
     </div>
 
@@ -942,14 +1085,14 @@ footer{ padding: 4.5rem 0 3rem; }
       <button class="music-toggle" id="musicToggle" type="button" aria-expanded="false" aria-controls="musicPlayer">
         <span class="music-icon" id="musicIcon">▶</span>
         <span class="music-info">
-          <strong>Tell Me Why (TV Version)</strong>
+          <strong>Minha música</strong>
           <span>toca aqui sem sair da página</span>
         </span>
       </button>
       <div class="music-player" id="musicPlayer">
         <!-- o iframe só recebe "src" quando o botão é clicado -->
         <iframe id="musicFrame" title="Player de música" allow="autoplay; encrypted-media" loading="lazy"></iframe>
-        <a id="musicFallback" class="music-fallback" href="https://www.youtube.com/watch?v=evQd6TVa8H4" target="_blank" rel="noopener">Não tocou? Ouvir no YouTube ↗</a>
+        <a id="musicFallback" class="music-fallback" href="https://www.youtube.com/watch?v=bSupYK20_Cs" target="_blank" rel="noopener">Não tocou? Ouvir no YouTube ↗</a>
       </div>
     </div>
 
@@ -1643,7 +1786,7 @@ h1{font-family:var(--heavy);font-weight:400;font-size:clamp(1.8rem,5vw,2.8rem);l
   var musicPlayer = document.getElementById('musicPlayer');
   var musicFrame  = document.getElementById('musicFrame');
   var musicIcon   = document.getElementById('musicIcon');
-  var VIDEO_ID = 'evQd6TVa8H4'; /* Berserk (1997) - Tell Me Why (TV Version) */
+  var VIDEO_ID = 'bSupYK20_Cs';
   var tocando = false;
 
   if (musicToggle) {
